@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // https://api.darksky.net/forecast/2db373ff3df7483fbebead8b5878da6f/37.8267,-122.4233
-        let forecastService = ForecastService(APIKey: "2db373ff3df7483fbebead8b5878da6f")
-        forecastService.getCurrentWeather(latitude: 37.8267,logitude: -122.4233)
+        //let forecastService = ForecastService(APIKey: "2db373ff3df7483fbebead8b5878da6f")
+        //forecastService.getCurrentWeather(latitude: 37.8267,logitude: -122.4233)
         
         return true
     }
