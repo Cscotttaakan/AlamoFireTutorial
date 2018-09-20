@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class ForecastService {
     
@@ -21,7 +22,21 @@ class ForecastService {
     
 
     func getCurrentWeather(latitude: Double , logitude: Double){
-        let forecastURL = URL(string: "\(forecastBaseURL)/\(latitude),\(logitude)")
+        if let forecastURL = URL(string: "\(String(describing: forecastBaseURL!))/\(latitude),\(logitude)"){
+            
+            //Use Alamofire to request access to Weather API which responds with JSON reply
+            Alamofire.request(forecastURL).responseJSON(completionHandler: {(response) in
+                if let jsonDictionary = response.result.value as? [String : Any] {
+                    if let currentWeatherDictionary = jsonDictionary["currently"] as? [String : Any]{
+                        
+                        let currentWeather = CurrentWeather(weatherDictionary: currentWeatherDictionary)
+                        
+                    }
+                }
+            })
+            
+        }
+        
     }
     
 }
